@@ -19,9 +19,14 @@
 .hidden{display:none!important}
 @media(max-width:780px){.grid2,.grid3{grid-template-columns:1fr}.row{align-items:flex-start;flex-direction:column}.day-grid{grid-template-columns:1fr 1fr}}
 </style>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="MarcaAgenda">
+<meta name="theme-color" content="#f5f2ed">
 </head>
 <body>
-<header class="topbar"><a class="brand" href="./">MarcaAgenda</a><a class="quiet-link" href="./">Página de vendas</a></header>
+<header class="topbar"><a class="brand" href="./">MarcaAgenda</a><a class="quiet-link" href="./">Página de vendas</a><a class="quiet-link" href="./instalar.html">Instalar app</a></header>
 <main class="wrap">
 <section id="loginCard" class="card" style="max-width:520px;margin:20px auto">
 <p class="eyebrow">PAINEL DO NEGÓCIO</p><h1>Entrar</h1><p class="muted">Área do proprietário e da equipe. Seus clientes não precisam entrar aqui para agendar.</p>
@@ -55,7 +60,7 @@
 <section id="tab-overview" class="tabpane">
   <div class="grid3"><div class="metric"><span class="muted">Hoje</span><strong id="todayCount">0</strong></div><div class="metric"><span class="muted">Próximos</span><strong id="futureCount">0</strong></div><div class="metric"><span class="muted">Clientes</span><strong id="clientCount">0</strong></div></div>
   <div id="advancedBox" class="card hidden" style="margin-top:16px"><h2>Painel avançado</h2><div class="grid3"><div class="metric"><span class="muted">Atendimentos 30 dias</span><strong id="monthCount">0</strong></div><div class="metric"><span class="muted">Serviços ativos</span><strong id="serviceCount">0</strong></div><div class="metric"><span class="muted">Profissionais ativos</span><strong id="proCount">0</strong></div></div></div>
-  <div class="card" style="margin-top:16px"><h2>Próximos agendamentos</h2><div class="table-wrap"><table><thead><tr><th>Horário</th><th>Cliente</th><th>Serviço</th><th>Profissional</th><th>Status</th></tr></thead><tbody id="appointments"></tbody></table></div></div>
+  <div class="card" style="margin-top:16px"><h2>Próximos agendamentos</h2><button id="refreshAppointments" class="secondary">Atualizar agenda</button><p id="refreshStatus" class="muted" role="status"></p><div class="table-wrap"><table><thead><tr><th>Horário</th><th>Cliente</th><th>Serviço</th><th>Profissional</th><th>Status</th></tr></thead><tbody id="appointments"></tbody></table></div></div>
 </section>
 
 <section id="tab-business" class="tabpane hidden">
@@ -91,4 +96,5 @@
 </section>
 </main>
 <script src="./admin.js" defer></script>
+<script src="./pwa.js" defer></script>
 </body></html>

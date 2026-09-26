@@ -2,7 +2,7 @@ const SB_URL='https://xdbnwojiwrjsoxmzuosu.supabase.co',SB_KEY='sb_publishable_M
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 let token=localStorage.getItem('ma_token'), business=null, businessId=null, plan=null, license=null, services=[], professionals=[];
 const hdr=()=>({apikey:SB_KEY,Authorization:`Bearer ${token||SB_KEY}`,'Content-Type':'application/json'});
-async function req(path,opt={}){const r=await fetch(`${SB_URL}/${path}`,{...opt,headers:{...hdr(),...(opt.headers||{})}});const t=await r.text();if(!r.ok)throw new Error(t||'Erro');return t?JSON.parse(t):null}
+async function req(path,opt={}){const r=await fetch(`${SB_URL}/${path}`,{...opt,headers:{...hdr(),...(opt.headers||{})}});const t=await r.text();if(!r.ok){const error=new Error(t||'Erro');error.status=r.status;throw error;}return t?JSON.parse(t):null}
 async function login(email,password){const r=await fetch(`${SB_URL}/auth/v1/token?grant_type=password`,{method:'POST',headers:{apikey:SB_KEY,'Content-Type':'application/json'},body:JSON.stringify({email,password})});const d=await r.json();if(!r.ok)throw new Error('E-mail ou senha inválidos.');token=d.access_token;localStorage.setItem('ma_token',token)}
 const cents=v=>{const n=Number(String(v||'').replace('.','').replace(',','.'));return Number.isFinite(n)?Math.round(n*100):null};
 const brl=c=>c==null?'—':new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(c/100);
@@ -73,5 +73,21 @@ $('#saveSchedule').onclick=async()=>{const pid=$('#scheduleProfessional').value;
 
 $('#loginForm').onsubmit=async e=>{e.preventDefault();try{await login($('#email').value,$('#password').value);await load()}catch(err){$('#loginError').textContent=err.message;$('#loginError').classList.remove('hidden')}};
 $('#logout').onclick=()=>{localStorage.removeItem('ma_token');location.reload()};
-async function load(){try{await refreshBase();await refreshData();$('#loginCard').classList.add('hidden');$('#dashboard').classList.remove('hidden')}catch(e){localStorage.removeItem('ma_token');token=null;$('#loginCard').classList.remove('hidden');$('#dashboard').classList.add('hidden')}}
+async function load(){try{await refreshBase();await refreshData();$('#loginCard').classList.add('hidden');$('#dashboard').classList.remove('hidden')}catch(e){if(e.status===401||e.status===403){localStorage.removeItem('ma_token');token=null;}$('#loginCard').classList.remove('hidden');$('#dashboard').classList.add('hidden');$('#loginError').textContent=navigator.onLine?'Não foi possível abrir o painel. Verifique seu acesso e tente novamente.':'Sem conexão. Reconecte-se e recarregue o painel.';$('#loginError').classList.remove('hidden')}}
 if(token)load();
+
+// Refresh only the appointment overview; preserve unsaved settings forms.
+let refreshingAppointments = false;
+async function syncAppointments() {
+ if (!token || !businessId || document.hidden || !navigator.onLine || refreshingAppointments || $('#dashboard').classList.contains('hidden')) return;
+ refreshingAppointments = true;
+ const button = $('#refreshAppointments'), status = $('#refreshStatus');
+ button.disabled = true;
+ try { await refreshOverview(); status.textContent = 'Agenda atualizada às ' + new Date().toLocaleTimeString('pt-BR', {hour:'2-digit',minute:'2-digit'}); }
+ catch { status.textContent = 'Não foi possível atualizar. Verifique sua conexão ou entre novamente.'; }
+ finally { refreshingAppointments = false; button.disabled = false; }
+}
+$('#refreshAppointments').addEventListener('click', syncAppointments);
+document.addEventListener('visibilitychange', syncAppointments);
+window.addEventListener('online', syncAppointments);
+setInterval(syncAppointments, 60000);

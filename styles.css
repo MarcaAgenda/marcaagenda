@@ -27,3 +27,9 @@ footer{display:flex;justify-content:space-between;gap:20px;align-items:center;wi
 @media(max-width:720px){.shell{padding-top:40px}.hero{align-items:flex-start;flex-direction:column}.status-pill{display:none}.steps{overflow:auto;grid-template-columns:repeat(4,minmax(125px,1fr))}.step{font-size:.78rem}.form-grid{grid-template-columns:1fr}.admin-grid{grid-template-columns:1fr}.topbar{padding:0 20px}}
 
 .slot-group{width:100%;margin:8px 0 20px}.slot-group h3{font-size:.92rem;color:var(--muted);margin:0 0 10px;letter-spacing:.02em}
+
+/* Installable app: respect device safe areas and keep forms usable on mobile. */
+.ma-connection{padding:12px 20px;background:#fff5e7;color:#553b16;text-align:center;font-size:.9rem;line-height:1.5}
+.ma-connection[hidden],[data-install-app][hidden]{display:none!important}
+@media(display-mode:standalone){body{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}.topbar{height:auto;min-height:74px;gap:12px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}}
+@media(max-width:720px){input,select,textarea{font-size:16px!important}footer,footer nav{flex-wrap:wrap}.topbar{gap:12px}.topbar .quiet-link{font-size:.8rem}}

@@ -1,0 +1,22 @@
+MARCAAGENDA — ATUALIZAÇÃO PARA APLICATIVO INSTALÁVEL
+
+1. Extraia este ZIP no computador.
+2. No repositório carlosjesus12343-cpu/marcaagenda, envie os arquivos extraídos para a raiz (Add file > Upload files). Mantenha a pasta icons com seus três PNGs. Não envie somente o ZIP.
+3. Confirme as substituições e aguarde o GitHub Pages terminar a publicação.
+4. Abra https://carlosjesus12343-cpu.github.io/marcaagenda/instalar.html
+5. No iPhone: Safari > Compartilhar > Adicionar à Tela de Início.
+   No Android: Chrome > Instalar MarcaAgenda (ou menu > Instalar app).
+
+O pacote contém apenas arquivos novos/alterados. Base: commit 557aa76b7a675809c2f4d9d2224660fc88719771. Caso o repositório tenha mudado depois dessa versão, revise antes de substituir.
+
+O app usa a mesma conexão e as mesmas regras do site. Não precisa migrar dados. Precisa de internet para acessar e salvar agendamentos. Login pode ser solicitado novamente no navegador/app conforme a sessão.
+
+VALIDAÇÃO
+- Sintaxe dos scripts: passou.
+- Manifesto e dimensões dos ícones: passaram.
+- Testes do service worker: navegação online, aviso offline, APIs e gravações fora do cache, preservação de caches de outros apps: passaram.
+- Teste visual e instalação real: pendentes. O navegador de testes não iniciou; download do navegador falhou no ambiente.
+- Login com conta real e fluxo completo de reservas: não executados nesta atualização.
+- Publicação: pendente, GitHub retornou 403 (permissão da integração).
+
+Não é APK nem publicação em loja. É a versão web instalável da MarcaAgenda.
