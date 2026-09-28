@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /gestao.html
+Sitemap: https://marcaagenda.distrito21.dev/sitemap.xml

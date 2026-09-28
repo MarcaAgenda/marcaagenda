@@ -3,20 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="description" content="Marca Agenda — agendamento online simples, rápido e profissional.">
+  <meta name="description" content="Marca Agenda — agendamento online simples, rápido e profissional para negócios de serviços.">
   <meta name="application-name" content="Marca Agenda">
   <meta name="author" content="Marca Agenda">
+  <meta name="theme-color" content="#f5f2ed">
+
+  <link rel="canonical" href="https://marcaagenda.distrito21.dev/">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="./icon-180.png">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Marca Agenda">
   <meta property="og:title" content="Marca Agenda">
   <meta property="og:description" content="Agendamento online simples, rápido e profissional.">
+  <meta property="og:url" content="https://marcaagenda.distrito21.dev/">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Marca Agenda">
   <meta name="twitter:description" content="Agendamento online simples, rápido e profissional.">
 
-  <title>Marca Agenda</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Marca Agenda">
+
+  <title>Marca Agenda — Agendamento online para negócios</title>
   <link rel="stylesheet" href="./styles.css">
   <style>
     .sales-shell{width:min(1120px,calc(100% - 32px));margin:auto}
@@ -40,21 +50,13 @@
     .demo-band{background:var(--accent);color:white;border-radius:28px;padding:clamp(28px,5vw,54px);display:flex;justify-content:space-between;align-items:center;gap:30px}
     .demo-band p{color:rgba(255,255,255,.72);line-height:1.6;max-width:650px}.demo-band .cta{background:white;color:var(--accent)}
     .price-card strong{display:block;font-size:2rem;margin:16px 0 4px}.price-card ul{padding-left:18px;color:var(--muted);line-height:1.8}
-    .mini-note{font-size:.78rem;color:var(--muted)}
-    .small-kicker{font-size:.72rem;letter-spacing:.08em;font-weight:800;color:#7a7169}
-    .testimonial{background:#eee8e0;border-radius:22px;padding:28px;margin-top:28px}.testimonial blockquote{margin:0;font-size:1.3rem;line-height:1.55;letter-spacing:-.02em}.testimonial small{display:block;margin-top:14px;color:var(--muted)}
-    .plan-badge{display:inline-block;background:#f0e8de;border-radius:999px;padding:8px 10px;font-size:.73rem;font-weight:800;letter-spacing:.08em;color:#655d57}
+    .mini-note{font-size:.78rem;color:var(--muted)}.plan-badge{display:inline-block;background:#f0e8de;border-radius:999px;padding:8px 10px;font-size:.73rem;font-weight:800;letter-spacing:.08em;color:#655d57}
     @media(max-width:820px){.sales-hero{grid-template-columns:1fr;padding-top:52px}.mock-phone{max-width:420px;margin:auto}.feature-grid,.use-grid,.price-grid{grid-template-columns:1fr}.demo-band{flex-direction:column;align-items:flex-start}}
   </style>
-<link rel="manifest" href="./manifest.webmanifest">
-<link rel="apple-touch-icon" href="./icons/icon-180.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="MarcaAgenda">
-<meta name="theme-color" content="#f5f2ed">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="./">MarcaAgenda</a>
+    <a class="brand" href="./">Marca Agenda</a>
     <a class="quiet-link" href="./demo.html">Ver demonstração</a>
   </header>
 
@@ -62,20 +64,20 @@
     <section class="sales-hero">
       <div>
         <p class="eyebrow">AGENDA ONLINE PARA NEGÓCIOS DE SERVIÇOS</p>
-        <h1>Venda uma experiência profissional, não só um link.</h1>
-        <p>O MarcaAgenda é uma apresentação profissional + sistema de agendamento para negócios como barbearia, clínica, estética, estúdio de beleza, tattoo, massagem, personal e atendimento particular.</p>
+        <h1>Seu negócio organizado. Seu cliente agenda sozinho.</h1>
+        <p>A Marca Agenda reúne apresentação profissional e agendamento online para barbearias, clínicas, estética, studios, tattoo, massagem, personal e outros serviços.</p>
         <div class="hero-actions">
-          <a class="cta primary-cta" href="./demo.html">Abrir demonstração</a>
+          <a class="cta primary-cta" href="./demo.html">Testar demonstração</a>
           <a class="cta soft" href="#planos">Ver planos</a>
         </div>
-        <p class="mini-note">Pensado para impressionar o cliente no primeiro acesso e facilitar o agendamento no celular.</p>
+        <p class="mini-note">Pensado para celular, com experiência simples para quem agenda e painel para quem atende.</p>
       </div>
       <div class="mock-phone">
         <div class="mock-screen">
           <div class="mock-brand">Sua Marca</div>
           <p class="eyebrow">AGENDAMENTO ONLINE</p>
           <h2 style="font-size:2rem;letter-spacing:-.05em;margin:0 0 8px">Escolha seu horário</h2>
-          <p class="muted">Rápido, simples e sem precisar mandar mensagem.</p>
+          <p class="muted">Rápido, simples e sem depender de resposta manual.</p>
           <div class="mock-card"><strong>Serviço principal</strong><span>45 min · valor personalizado</span></div>
           <div class="mock-card"><strong>Serviço premium</strong><span>60 min · valor personalizado</span></div>
           <div class="mock-times"><b>09:00</b><b>10:30</b><b>13:00</b><b>14:30</b><b>16:00</b><b>17:30</b></div>
@@ -85,102 +87,87 @@
 
     <section class="section">
       <p class="eyebrow">O QUE O CLIENTE RECEBE</p>
-      <h2 class="section-title">Não é só um site. É uma agenda que trabalha por você.</h2>
-      <p class="section-sub">O cliente entra, escolhe o serviço, o profissional e um horário livre. O sistema registra a reserva e ajuda a transformar interesse em atendimento confirmado.</p>
+      <h2 class="section-title">Uma agenda que trabalha junto com o seu negócio.</h2>
+      <p class="section-sub">O cliente escolhe serviço, profissional e horário disponível. A reserva fica registrada e horários ocupados deixam de aparecer como disponíveis.</p>
       <div class="feature-grid">
-        <article class="feature"><div class="num">01</div><h3>Agenda online 24h</h3><p>O cliente vê horários a qualquer momento sem depender de resposta manual.</p></article>
-        <article class="feature"><div class="num">02</div><h3>Sem horário duplicado</h3><p>Organização melhor da rotina e menos risco de conflito entre atendimentos.</p></article>
-        <article class="feature"><div class="num">03</div><h3>Escolha de profissional</h3><p>O cliente pode selecionar o profissional que deseja atender.</p></article>
-        <article class="feature"><div class="num">04</div><h3>Experiência visual profissional</h3><p>Visual clean, moderno e pronto para valorizar a marca do seu cliente.</p></article>
-        <article class="feature"><div class="num">05</div><h3>Contato por WhatsApp</h3><p>Perfeito para continuar o atendimento e confirmar detalhes após o agendamento.</p></article>
-        <article class="feature"><div class="num">06</div><h3>Feito para celular</h3><p>A navegação principal foi pensada para funcionar bem no smartphone.</p></article>
+        <article class="feature"><div class="num">01</div><h3>Agenda online 24h</h3><p>O cliente consulta horários a qualquer momento.</p></article>
+        <article class="feature"><div class="num">02</div><h3>Sem horário duplicado</h3><p>O sistema controla a disponibilidade de cada profissional.</p></article>
+        <article class="feature"><div class="num">03</div><h3>Escolha de profissional</h3><p>Mostre apenas quem realiza o serviço selecionado.</p></article>
+        <article class="feature"><div class="num">04</div><h3>Visual profissional</h3><p>Experiência clean, moderna e adaptada ao celular.</p></article>
+        <article class="feature"><div class="num">05</div><h3>WhatsApp</h3><p>Mantenha um canal rápido para confirmação e contato.</p></article>
+        <article class="feature"><div class="num">06</div><h3>Painel do negócio</h3><p>Acompanhe agenda, serviços, profissionais e configurações.</p></article>
       </div>
     </section>
 
     <section class="section">
-      <p class="eyebrow">EXEMPLOS DE NICHOS</p>
-      <h2 class="section-title">Apresente para negócios diferentes sem citar marcas reais.</h2>
+      <p class="eyebrow">FEITO PARA SERVIÇOS</p>
+      <h2 class="section-title">Uma base que se adapta a diferentes negócios.</h2>
       <div class="use-grid">
-        <article class="use-card"><span class="tag">BARBEARIA</span><h3>Barbearia</h3><p>Corte, barba, combo, escolha do barbeiro, horários e painel de atendimentos.</p></article>
-        <article class="use-card"><span class="tag">CLÍNICA</span><h3>Clínica</h3><p>Consultas, retornos, organização de horários e atendimento com aparência profissional.</p></article>
-        <article class="use-card"><span class="tag">ESTÉTICA</span><h3>Estética</h3><p>Procedimentos, agenda individual ou em equipe e confirmação facilitada.</p></article>
-        <article class="use-card"><span class="tag">BELEZA</span><h3>Studio de Beleza</h3><p>Manicure, pedicure, escova, coloração e agenda por profissional.</p></article>
-        <article class="use-card"><span class="tag">MASSAGEM</span><h3>Massagem</h3><p>Sessões, avaliações e blocos de horários organizados para cada atendimento.</p></article>
-        <article class="use-card"><span class="tag">TATTOO</span><h3>Tattoo</h3><p>Consulta, sessão, retoque e distribuição dos horários entre tatuadores.</p></article>
+        <article class="use-card"><span class="tag">BARBEARIA</span><h3>Barbearia</h3><p>Corte, barba, combos, barbeiros e horários.</p></article>
+        <article class="use-card"><span class="tag">CLÍNICA</span><h3>Clínica</h3><p>Consultas, retornos e organização de agenda.</p></article>
+        <article class="use-card"><span class="tag">ESTÉTICA</span><h3>Estética</h3><p>Procedimentos e agenda individual ou em equipe.</p></article>
+        <article class="use-card"><span class="tag">BELEZA</span><h3>Studio de beleza</h3><p>Serviços e horários separados por profissional.</p></article>
+        <article class="use-card"><span class="tag">MASSAGEM</span><h3>Massagem</h3><p>Sessões e blocos de atendimento organizados.</p></article>
+        <article class="use-card"><span class="tag">TATTOO</span><h3>Tattoo</h3><p>Consultas, sessões, retoques e profissionais.</p></article>
       </div>
     </section>
 
     <section class="section">
       <div class="demo-band">
         <div>
-          <p class="eyebrow" style="color:#d8cec5">DEMONSTRAÇÃO REAL</p>
-          <h2 class="section-title" style="margin-bottom:10px">Mostre para o cliente como se ele estivesse usando o sistema.</h2>
-          <p>A demonstração foi ajustada para o visitante escolher serviço, profissional 1, 2 ou 3, horário e depois seguir para o WhatsApp.</p>
+          <p class="eyebrow" style="color:#d8cec5">DEMONSTRAÇÃO</p>
+          <h2 class="section-title" style="margin-bottom:10px">Veja a experiência antes de escolher.</h2>
+          <p>Teste o fluxo de serviço, profissional, horário e dados do cliente.</p>
         </div>
-        <a class="cta" href="./demo.html">Testar o agendamento →</a>
+        <a class="cta" href="./demo.html">Testar agora →</a>
       </div>
     </section>
 
     <section class="section" id="planos">
-      <p class="eyebrow">PLANOS COM PAGAMENTO VITALÍCIO</p>
-      <h2 class="section-title">Venda como projeto fechado e uso vitalício.</h2>
-      <p class="section-sub">O cliente paga uma única vez. Depois da confirmação do pagamento, os recursos do plano comprado são liberados. Sem mensalidade do MarcaAgenda.</p>
+      <p class="eyebrow">PLANOS COM PAGAMENTO ÚNICO</p>
+      <h2 class="section-title">Escolha o nível ideal para o seu negócio.</h2>
+      <p class="section-sub">O pagamento é feito uma única vez. A liberação ocorre após a confirmação do Pix.</p>
       <div class="price-grid">
         <article class="price-card">
           <span class="plan-badge">PAGAMENTO ÚNICO</span>
-          <h3>Essencial</h3>
-          <p>Para profissional autônomo ou negócio pequeno.</p>
-          <strong>R$ 39,99</strong><a class="cta primary-cta" href="./pagamento.html?plano=essential" style="margin-top:14px">Comprar Essencial</a>
-          <ul>
-            <li>1 profissional</li>
-            <li>Serviços e preços personalizados</li>
-            <li>Página profissional com agendamento</li>
-            <li>Painel básico</li>
-            <li>Botão de WhatsApp</li>
-            <li>Acesso ao plano após pagamento único</li>
-          </ul>
+          <h3>Essencial</h3><p>Para profissional autônomo ou negócio pequeno.</p>
+          <strong>R$ 39,99</strong>
+          <a class="cta primary-cta" href="./pagamento.html?plano=essential" style="margin-top:14px">Comprar Essencial</a>
+          <ul><li>1 profissional</li><li>Serviços e preços personalizados</li><li>Página de agendamento</li><li>Painel básico</li><li>Botão de WhatsApp</li></ul>
         </article>
         <article class="price-card">
           <span class="plan-badge">PAGAMENTO ÚNICO</span>
-          <h3>Profissional</h3>
-          <p>Para equipe pequena ou negócio com mais fluxo.</p>
-          <strong>R$ 79,99</strong><a class="cta primary-cta" href="./pagamento.html?plano=professional" style="margin-top:14px">Comprar Profissional</a>
-          <ul>
-            <li>Até 5 profissionais</li>
-            <li>Escolha de profissional pelo cliente</li>
-            <li>Agenda organizada por horários</li>
-            <li>Painel avançado</li>
-            <li>Identidade personalizada</li>
-            <li>Acesso ao plano após pagamento único</li>
-          </ul>
+          <h3>Profissional</h3><p>Para equipe pequena ou negócio com mais fluxo.</p>
+          <strong>R$ 79,99</strong>
+          <a class="cta primary-cta" href="./pagamento.html?plano=professional" style="margin-top:14px">Comprar Profissional</a>
+          <ul><li>Até 5 profissionais</li><li>Escolha de profissional</li><li>Agenda por horários</li><li>Painel avançado</li><li>Identidade personalizada</li></ul>
         </article>
         <article class="price-card">
           <span class="plan-badge">PAGAMENTO ÚNICO</span>
-          <h3>Premium</h3>
-          <p>Para quem quer algo mais completo e valorizado.</p>
-          <strong>R$ 99,99</strong><a class="cta primary-cta" href="./pagamento.html?plano=premium" style="margin-top:14px">Comprar Premium</a>
-          <ul>
-            <li>Profissionais ilimitados</li>
-            <li>Apresentação premium da marca</li>
-            <li>Link personalizado do negócio</li>
-            <li>Personalização visual avançada</li>
-            <li>Painel avançado</li>
-            <li>Suporte prioritário</li>
-            <li>Acesso ao plano após pagamento único</li>
-          </ul>
+          <h3>Premium</h3><p>Para quem quer a experiência mais completa.</p>
+          <strong>R$ 99,99</strong>
+          <a class="cta primary-cta" href="./pagamento.html?plano=premium" style="margin-top:14px">Comprar Premium</a>
+          <ul><li>Profissionais ilimitados</li><li>Apresentação premium</li><li>Link personalizado do negócio</li><li>Personalização visual avançada</li><li>Painel avançado</li><li>Suporte prioritário</li></ul>
         </article>
-      </div>
-      <div class="testimonial">
-        <blockquote>“Em vez de explicar demais, você mostra a demonstração, o cliente entende rápido e já visualiza o sistema no próprio negócio.”</blockquote>
-        <small>Frase de apoio para usar na apresentação comercial.</small>
       </div>
     </section>
-  <section class="sales-shell" style="padding-bottom:72px"><div class="demo-band"><div><p class="eyebrow" style="color:#d8cec5">DEPOIS DA COMPRA</p><h2 class="section-title" style="margin-bottom:10px">O cliente recebe o próprio painel e link de agendamento.</h2><p>Depois do pagamento confirmado, ele cria a conta, informa o nome do negócio e o sistema prepara a página pública com um profissional, um serviço e horários iniciais para edição.</p></div><a class="cta" href="./ativar.html">Ver área de ativação</a></div></section></main>
+
+    <section class="section">
+      <div class="demo-band">
+        <div>
+          <p class="eyebrow" style="color:#d8cec5">DEPOIS DA COMPRA</p>
+          <h2 class="section-title" style="margin-bottom:10px">Ative sua conta e configure seu negócio.</h2>
+          <p>Após o pagamento confirmado, você cria o acesso, define o nome do negócio e recebe seu painel e link público de agendamento.</p>
+        </div>
+        <a class="cta" href="./ativar.html">Área de ativação</a>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <span>© 2026 MarcaAgenda</span>
+    <span>© 2026 Marca Agenda</span>
     <nav><a href="./instalar.html">Instalar app</a><a href="./privacidade.html">Privacidade</a><a href="./termos.html">Termos</a><a href="./admin.html">Painel do negócio</a></nav>
   </footer>
-<script src="./pwa.js" defer></script>
+  <script src="./pwa.js" defer></script>
 </body>
 </html>

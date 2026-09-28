@@ -6,8 +6,8 @@
   function render() {
     if (!button) return;
     button.hidden = standalone();
-    button.textContent = installPrompt ? 'Instalar MarcaAgenda' : 'Como instalar';
-    if (message && standalone()) message.textContent = 'Você já está usando a MarcaAgenda como aplicativo.';
+    button.textContent = installPrompt ? 'Instalar Marca Agenda' : 'Como instalar';
+    if (message && standalone()) message.textContent = 'Você já está usando a Marca Agenda como aplicativo.';
   }
   window.addEventListener('beforeinstallprompt', event => {
     event.preventDefault(); installPrompt = event; render();
