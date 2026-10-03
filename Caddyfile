@@ -1,0 +1,15 @@
+:{$PORT:8080} {
+  encode zstd gzip
+
+  reverse_proxy https://nexapay-api-b2b.floot.app {
+    header_up Host nexapay-api-b2b.floot.app
+    header_up X-Forwarded-Host {host}
+    header_up X-Forwarded-Proto {scheme}
+  }
+
+  header {
+    -Server
+    X-Content-Type-Options nosniff
+    Referrer-Policy strict-origin-when-cross-origin
+  }
+}
