@@ -15,6 +15,28 @@
   <link rel="stylesheet" href="./styles.css?v=20261010">
   <title>Mari Lanches | Cardápio</title>
   <script defer src="./app.js?v=20261010"></script>
+  <script>
+  // Remove o service worker e os caches offline da antiga Marca Agenda.
+  window.addEventListener('load', async () => {
+    try {
+      if ('serviceWorker' in navigator) {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(registrations
+          .filter(reg => new URL(reg.scope).origin === location.origin)
+          .map(async reg => {
+            try { await reg.update(); } catch (e) { /* limpeza continua offline */ }
+            return reg.unregister();
+          }));
+      }
+      if ('caches' in window) {
+        const names = await caches.keys();
+        await Promise.all(names
+          .filter(name => /^marcaagenda[-_]/i.test(name))
+          .map(name => caches.delete(name)));
+      }
+    } catch (e) { console.warn('Limpeza de cache antigo pendente:', e); }
+  });
+</script>
 </head>
 <body>
   <a class="skip-link" href="#cardapio">Ir para o cardápio</a>
