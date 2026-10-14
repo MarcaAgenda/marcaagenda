@@ -1,25 +1,20 @@
-# Mari Lanches
+# Central NFC — Site de links
 
-Site estático e independente para a Mari Lanches, publicado pelo repositório GitHub `MarcaAgenda/marcaagenda`. Este repositório foi reaproveitado mediante solicitação do proprietário.
+Esta é a página principal pública de links para cartões e plaquinhas NFC, hospedada via GitHub Pages, sem dependência do Floot.
 
-## Endereço
-O arquivo `CNAME` existente preserva: `marcaagenda.distrito21.dev.br`.
+## Arquivos e endereço
+- Página principal: `index.html`.
+- Cópia em `nfc/index.html` e instruções em `nfc/README.md`.
+- O CNAME preservado é `marcaagenda.distrito21.dev.br`. O endereço só funciona se DNS e GitHub Pages estiverem configurados corretamente.
 
-## Conteúdo confirmado
-A oferta divulgada inclui 2 hambúrgueres clássicos (pão, carne e muçarela), fritas, Coca-Cola 600 ml, preço informado de R$ 39,99 e limite promocional original de 10 unidades. Confirme a disponibilidade e o valor antes de oferecer.
+## Personalizar a empresa
+Edite no `index.html` o objeto `CONFIG` ao final do arquivo: `nome`, `iniciais`, `categoria`, `descricao` e `links`. Insira URLs completas, com https, para Google Avaliações, Instagram, WhatsApp, cardápio, localização e instruções de Wi-Fi. Links vazios ficam desativados como “Em breve”. Para o Google, use o link de solicitação de avaliações da ficha da empresa. Não publique senhas, tokens ou dados sensíveis.
 
-## O que funciona
-- Interface responsiva preta, laranja e bege.
-- Apresentação do cardápio confirmado.
-- Resumo local de pedido e botão para copiar texto. O resumo é gerado somente no navegador, não é transmitido.
-- HTML/CSS/JS sem dependência de Floot.
+## Tags NFC
+Depois que o site abrir no domínio público, grave somente o endereço da página em cada tag usando NFC Tools → Escrever → URL. Mudar os links no GitHub não exige regravar as tags enquanto o endereço continuar igual.
 
-## Pendente antes de operar
-- Adicionar dados completos e atuais dos três cardápios originais, imagens, preços e descrições.
-- Informar o telefone/WhatsApp comercial e ativar o canal de pedidos.
-- Criar backend confiável de pedidos, painel administrativo e autenticação, se desejado.
-- Para impressora térmica **Wi-Fi**, criar ponte local/serviço de impressão: GitHub Pages sozinho não envia pedidos diretamente à impressora da lancheria.
-- Confirmar DNS/HTTPS e a publicação GitHub Pages nas configurações do repositório.
+## Backup e histórico
+O site anterior da Mari Lanches foi preservado em `backup-mari-lanches-2026-10-14`. A versão do Marca Agenda anterior à Mari Lanches já estava em `backup-marcaagenda-2026-10-10`. Evite renomear o domínio depois de gravar tags, ou elas apontarão para o endereço antigo.
 
-## Segurança/migração
-A versão antiga do MarcaAgenda foi preservada no branch `backup-marcaagenda-2026-10-10`. Páginas e scripts de pagamento/agenda foram retirados da branch principal, pois não fazem parte do novo negócio.
+## Publicação
+Em GitHub → Settings → Pages, verifique se a publicação usa a branch `main` e a pasta raiz `/(root)`. Aguarde o estado da publicação e valide o HTTPS do domínio antes de utilizar as plaquinhas.
