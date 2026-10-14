@@ -1,87 +1,105 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#11100e">
-  <meta name="description" content="Mari Lanches: sabor de verdade, cardápio digital e pedidos com praticidade.">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Mari Lanches">
-  <meta property="og:title" content="Mari Lanches | Feito com capricho">
-  <meta property="og:description" content="Conheça a Mari Lanches e confira o cardápio.">
-  <meta property="og:url" content="https://marcaagenda.distrito21.dev.br/">
-  <link rel="canonical" href="https://marcaagenda.distrito21.dev.br/">
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./styles.css?v=20261010">
-  <title>Mari Lanches | Cardápio</title>
-  <script defer src="./app.js?v=20261010"></script>
-  <script>
-  // Remove o service worker e os caches offline da antiga Marca Agenda.
-  window.addEventListener('load', async () => {
-    try {
-      if ('serviceWorker' in navigator) {
-        const registrations = await navigator.serviceWorker.getRegistrations();
-        await Promise.all(registrations
-          .filter(reg => new URL(reg.scope).origin === location.origin)
-          .map(async reg => {
-            try { await reg.update(); } catch (e) { /* limpeza continua offline */ }
-            return reg.unregister();
-          }));
-      }
-      if ('caches' in window) {
-        const names = await caches.keys();
-        await Promise.all(names
-          .filter(name => /^marcaagenda[-_]/i.test(name))
-          .map(name => caches.delete(name)));
-      }
-    } catch (e) { console.warn('Limpeza de cache antigo pendente:', e); }
-  });
-</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8f7f4">
+<meta name="description" content="Encontre nossos canais, serviços e informações em um só lugar.">
+<title>Sua Marca • Conecte-se</title>
+<style>
+:root{--background:#f8f7f4;--ink:#232624;--muted:#858780;--line:#eae9e4;--gold:#b5976b}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -180px,#e9e2d5,transparent 65%),var(--background);color:var(--ink);font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{width:min(100% - 36px,462px);margin:0 auto;padding:42px 0}
+.top-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.24em;color:#aa9371;display:flex;justify-content:center;align-items:center;gap:11px}
+.top-label:before,.top-label:after{content:"";width:21px;height:1px;background:#c6b79f}
+header{text-align:center;padding:29px 16px 30px}
+.monogram{height:78px;width:78px;margin:0 auto 21px;border-radius:24px;background:#252a27;color:#f6f2e9;box-shadow:0 12px 32px #11191626;display:grid;place-items:center;font:30px Georgia,serif}
+.kicker{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#9c886c;margin-bottom:8px}
+h1{font:400 clamp(34px,9vw,44px)/1.05 Georgia,"Times New Roman",serif;letter-spacing:-.045em;margin:0 0 12px}
+.description{max-width:315px;margin:0 auto;color:#777b74;font-size:14px;line-height:1.65}
+.links{padding:12px;background:#fff;border:1px solid var(--line);border-radius:28px;box-shadow:0 16px 50px #2a292108}
+.item{display:flex;align-items:center;gap:14px;min-height:75px;padding:12px 13px;border-radius:17px;color:inherit;text-decoration:none;transition:background .18s,transform .18s}
+.item:not(:last-child){border-bottom:1px solid #f3f2ef}
+a.item:hover{background:#f9f8f4;transform:translateY(-1px)}
+a.item:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.item.inactive{opacity:.48;cursor:default}
+.icon{width:46px;height:46px;flex:0 0 46px;border-radius:15px;display:grid;place-items:center;background:#f3f2ee;font-size:23px;font-weight:600}
+.google{background:#edf3fe;color:#4285f4}.instagram{background:#faf0f5;color:#cf4b8c}.whatsapp{background:#edf7f0;color:#299765}.menu{background:#f7f3eb;color:#b48e54}.map{background:#eef3f7;color:#627f9e}.wifi{background:#f3f0f9;color:#8471a4}
+.details{flex:1;min-width:0;display:flex;flex-direction:column}
+.details strong{font-size:15px;line-height:1.35;font-weight:650;letter-spacing:-.015em}
+.details small{color:#95978f;font-size:11.5px;margin-top:3px}
+.arrow{font-size:18px;color:#b2b1a9}
+footer{text-align:center;padding-top:27px;color:#999b95;font-size:11px}
+footer:before{content:"";display:block;width:38px;height:1px;background:#d3bfa1;margin:0 auto 15px}
+@media(max-width:365px){main{width:min(100% - 20px,462px);padding-top:25px}.links{padding:7px}.item{gap:10px;padding:10px 9px}.icon{width:41px;flex-basis:41px;height:41px}}
+@media(prefers-reduced-motion:reduce){.item{transition:none}}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#cardapio">Ir para o cardápio</a>
-  <div class="topline">MARI LANCHES <span>•</span> FEITO COM CAPRICHO</div>
-  <header class="site-header">
-    <div class="container header-content">
-      <a class="logo" href="#inicio" aria-label="Mari Lanches, início"><span class="logo-icon" aria-hidden="true">M<span>•</span></span><span>MARI <strong>LANCHES</strong></span></a>
-      <nav class="nav" aria-label="Menu principal"><a href="#inicio">Início</a><a href="#cardapio">Cardápio</a><a href="#sobre">Sobre nós</a></nav>
-      <a class="header-cta" href="#cardapio">Ver cardápio <span aria-hidden="true">↗</span></a>
-    </div>
+<main>
+  <div class="top-label">Conexão inteligente</div>
+  <header>
+    <div class="monogram" id="monogram">SM</div>
+    <div class="kicker" id="category">Boas-vindas</div>
+    <h1 id="title">Sua Marca</h1>
+    <p class="description" id="intro">Tudo o que você precisa, a um toque. Escolha como prefere se conectar com a gente.</p>
   </header>
-  <main id="inicio">
-    <section class="hero container" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <span class="eyebrow"><span class="eyebrow-dot"></span> MUITO SABOR, SEM COMPLICAÇÃO</span>
-        <h1 id="hero-title">Bateu a<br><em>fome?</em><br>Chegou no<br><span>lugar certo.</span></h1>
-        <p>Seu momento favorito do dia merece um lanche à altura. Conheça a Mari Lanches.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="#cardapio">Explorar cardápio <span aria-hidden="true">↗</span></a><a class="text-link" href="#sobre">Conhecer a Mari <span aria-hidden="true">→</span></a></div>
-        <div class="hero-trust"><span class="sparkle" aria-hidden="true">✳</span> Preparamos tudo com carinho e capricho.</div>
-      </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="art-ring"></div><div class="art-ring inner"></div>
-        <div class="orange-disk"></div>
-        <div class="food-graphic"><div class="burger-top"><span></span><span></span><span></span><span></span></div><div class="lettuce"></div><div class="cheese"></div><div class="patty"></div><div class="burger-bottom"></div></div>
-        <div class="hero-stamp">BOM<br>SABOR <small>TODO DIA</small></div>
-        <span class="art-star star-one">✦</span><span class="art-star star-two">✳</span>
-      </div>
-    </section>
-    <div class="ticker" aria-hidden="true"><div>BURGER <span>✳</span> SABOR <span>✳</span> CAPRICHO <span>✳</span> MARI LANCHES <span>✳</span> BURGER <span>✳</span> SABOR <span>✳</span></div></div>
-    <section id="cardapio" class="menu-section" aria-labelledby="menu-title">
-      <div class="container">
-        <div class="section-heading"><div><span class="section-kicker">ESCOLHA O SEU FAVORITO</span><h2 id="menu-title">Nosso <em>cardápio.</em></h2></div><p>Confira a oferta que já foi divulgada. Os demais itens do cardápio estão sendo cadastrados.</p></div>
-        <div class="menu-grid">
-          <article class="product-card">
-            <div class="product-visual" aria-hidden="true"><span class="offer-label">COMBO CLÁSSICO</span><div class="combo-emojis">🍔 <span>🍟</span> 🍔</div><div class="drink">🥤</div></div>
-            <div class="product-detail"><span class="product-category">OFERTA DIVULGADA</span><h3>Combo de dois hambúrgueres</h3><p>2 hambúrgueres clássicos com pão, carne e muçarela, acompanhados de fritas e Coca-Cola 600 ml.</p><div class="price-row"><div><span class="old-label">Preço informado</span><strong>R$ 39,99</strong></div><button class="btn btn-dark" id="add-combo" type="button">Adicionar <span aria-hidden="true">+</span></button></div><small class="availability-note">Promoção originalmente limitada a 10 unidades. Confirme preço e disponibilidade antes de comprar.</small></div>
-          </article>
-          <div class="coming-soon"><div class="soon-icon" aria-hidden="true">✦</div><span class="section-kicker">EM ATUALIZAÇÃO</span><h3>Mais gostosuras<br>vêm por aí.</h3><p>O restante do cardápio, preços e imagens serão publicados assim que os itens forem confirmados.</p><span class="coming-label">CARDÁPIO COMPLETO EM BREVE</span></div>
-        </div>
-        <p class="menu-disclaimer">O pedido online e a impressão automática na cozinha ainda não estão ativos. Esta versão permite montar e copiar o resumo para contato direto com a lancheria.</p>
-      </div>
-    </section>
-    <section id="sobre" class="about-section"><div class="container about-grid"><div class="about-icon" aria-hidden="true"><span>M<span>•</span></span><small>LANCHES</small></div><div><span class="section-kicker">BEM-VINDO À MARI</span><h2>Feito com <em>capricho.</em><br>Servido com carinho.</h2><p>Na Mari Lanches, a ideia é simples: tornar a hora do lanche um momento especial. Este é nosso novo cantinho digital, criado para apresentar nossos sabores.</p><a class="about-link" href="#cardapio">Voltar ao cardápio <span aria-hidden="true">↑</span></a></div></div></section>
-  </main>
-  <footer class="footer"><div class="container footer-inner"><a class="logo footer-logo" href="#inicio"><span class="logo-icon" aria-hidden="true">M<span>•</span></span><span>MARI <strong>LANCHES</strong></span></a><span>© <span id="year">2026</span> Mari Lanches · Feito com capricho.</span><a href="#inicio">Voltar ao topo ↑</a></div></footer>
-  <div class="cart-bar" id="cart-bar" hidden><div><span id="cart-quantity">1 item</span><strong id="cart-total">R$ 39,99</strong></div><button type="button" class="btn btn-primary" id="open-cart">Ver resumo <span aria-hidden="true">→</span></button></div>
-  <dialog id="cart-dialog" aria-labelledby="cart-title"><div class="modal-head"><div><span class="section-kicker">SEU RESUMO</span><h2 id="cart-title">Pedido</h2></div><button type="button" class="close-modal" id="close-cart" aria-label="Fechar">×</button></div><div id="cart-items"></div><div class="cart-total"><span>Total estimado</span><strong id="modal-total">R$ 0,00</strong></div><label for="customer-name">Seu nome (opcional)</label><input id="customer-name" type="text" maxlength="80" placeholder="Como podemos te chamar?"><label for="order-notes">Observações (opcional)</label><textarea id="order-notes" rows="3" maxlength="500" placeholder="Alguma observação para o pedido?"></textarea><button id="copy-order" class="btn btn-primary full" type="button">Copiar resumo do pedido</button><p id="copy-feedback" class="feedback" role="status"></p><p class="modal-note">Copiar não envia nem confirma o pedido. Entre em contato com a Mari Lanches para combinar atendimento, entrega ou retirada, pagamento e disponibilidade.</p></dialog>
-</body></html>
+  <nav class="links" id="links" aria-label="Links da empresa"></nav>
+  <footer>Simples de acessar. Fácil de conectar.</footer>
+</main>
+<script>
+/* EDITE AQUI: campos entre aspas; links vazios aparecem como "Em breve". */
+const CONFIG = {
+  nome: "Sua Marca",
+  iniciais: "SM",
+  categoria: "Boas-vindas",
+  descricao: "Tudo o que você precisa, a um toque. Escolha como prefere se conectar com a gente.",
+  links: {
+    google: "",
+    instagram: "",
+    whatsapp: "",
+    cardapio: "",
+    localizacao: "",
+    wifi: ""
+  }
+};
+/* Exemplo de WhatsApp: https://wa.me/5555999999999 */
+/* Para Google, use o link de solicitação de avaliações do Perfil da Empresa. */
+/* Não coloque senhas de Wi-Fi nem dados sensíveis em páginas públicas. */
+const itens = [
+ {id:"google",nome:"Avalie no Google",sub:"Conte como foi sua experiência",ico:"G",cor:"google"},
+ {id:"instagram",nome:"Siga no Instagram",sub:"Acompanhe novidades e conteúdos",ico:"◎",cor:"instagram"},
+ {id:"whatsapp",nome:"Chamar no WhatsApp",sub:"Fale diretamente com a equipe",ico:"☎",cor:"whatsapp"},
+ {id:"cardapio",nome:"Cardápio e serviços",sub:"Conheça o que oferecemos",ico:"▤",cor:"menu"},
+ {id:"localizacao",nome:"Como chegar",sub:"Nossa localização no mapa",ico:"⌖",cor:"map"},
+ {id:"wifi",nome:"Acesso ao Wi-Fi",sub:"Orientações para visitantes",ico:"⌁",cor:"wifi"}
+];
+document.getElementById("monogram").textContent=CONFIG.iniciais;
+document.getElementById("category").textContent=CONFIG.categoria;
+document.getElementById("title").textContent=CONFIG.nome;
+document.getElementById("intro").textContent=CONFIG.descricao;
+document.title=CONFIG.nome+" • Conecte-se";
+const nav=document.getElementById("links");
+function linkValido(raw){
+  try { const url=new URL(String(raw||"").trim()); return ["https:","http:"].includes(url.protocol)?url.href:""; }
+  catch { return ""; }
+}
+for(const item of itens){
+  const url=linkValido(CONFIG.links[item.id]);
+  const element=document.createElement(url?"a":"div");
+  element.className="item"+(url?"":" inactive");
+  if(url){element.href=url;element.target="_blank";element.rel="noopener noreferrer";element.setAttribute("aria-label",item.nome+": abrir link");}
+  else{element.setAttribute("aria-disabled","true");}
+  const icon=document.createElement("span");icon.className="icon "+item.cor;icon.textContent=item.ico;icon.setAttribute("aria-hidden","true");
+  const text=document.createElement("span");text.className="details";
+  const label=document.createElement("strong");label.textContent=item.nome;
+  const hint=document.createElement("small");hint.textContent=url?item.sub:"Em breve • link ainda não configurado";
+  text.append(label,hint);
+  const arrow=document.createElement("span");arrow.className="arrow";arrow.textContent=url?"↗":"—";arrow.setAttribute("aria-hidden","true");
+  element.append(icon,text,arrow);
+  nav.append(element);
+}
+</script>
+</body>
+</html>
